@@ -14,7 +14,13 @@ public class CodexNaturalis {
 		System.out.println(p1);
 		System.out.println(deck);
 		Application.run(Color.ORANGE, context -> {
-			
+			while (true) {
+				for (int i = 0; i < deck.getSize(); i++) {
+					for (int j = 50; j < deck.getSize()*250; j+=250) {
+						deck.get(i).draw(context, j, 20);
+					}
+				}
+			}
 		});
 	}
 }
