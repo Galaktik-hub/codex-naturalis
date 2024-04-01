@@ -2,6 +2,7 @@ package codexnaturalis.card;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Deck {
 	private final List<Card> deck;
@@ -25,6 +26,12 @@ public class Deck {
 		return deck.get(position);
 	}
 	
+	public Card getAndRemove(int position) {
+		Card card = deck.get(position);
+		deck.remove(position);
+		return card;
+	}
+	
 	public int getSize() {
 		return size;
 	}
@@ -43,6 +50,11 @@ public class Deck {
 		this.deck.add(new RessourceCard(RessourceType.ANIMAL, RessourceType.NONE, RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.NONE, 1)); incrementDeckSize();
 	}
 	
+	public Card drawRandomCard() {
+		Random r = new Random();
+		return getAndRemove(r.nextInt(this.size));
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -51,7 +63,7 @@ public class Deck {
 			.append("\n---\n");
 		for (Card card : deck) {
 			sb.append(card.toString())
-				.append("\n");
+			  .append("\n");
 		}
 		return sb.toString();
 	}

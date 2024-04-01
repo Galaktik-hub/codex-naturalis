@@ -29,7 +29,7 @@ public record RessourceCard(RessourceType type,
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Carte dorure | Point(s): ")
+		sb.append("Carte ressource | Point(s): ")
 			.append(this.point)
 			.append(" | Type: ")
 			.append(this.type)
