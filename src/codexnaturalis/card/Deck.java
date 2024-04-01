@@ -21,10 +21,18 @@ public class Deck {
 		this.size--;
 	}
 	
-	public Card get() {
-		return deck.getFirst();
+	public Card get(int position) {
+		return deck.get(position);
 	}
 	
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 	private void fill() {
 		this.deck.add(new RessourceCard(RessourceType.ANIMAL, RessourceType.NONE, RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.NONE, 0)); incrementDeckSize();
 		this.deck.add(new RessourceCard(RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.NONE, RessourceType.NONE, RessourceType.ANIMAL, 0)); incrementDeckSize();

@@ -1,7 +1,9 @@
 package codexnaturalis;
 
+import java.awt.Color;
 import codexnaturalis.card.Deck;
 import codexnaturalis.player.Player;
+import fr.umlv.zen5.Application;
 
 public class CodexNaturalis {
 
@@ -9,8 +11,10 @@ public class CodexNaturalis {
 		Player p1 = new Player(1);
 		Deck deck = new Deck();
 		
-		System.out.println(p1.toString());
-		System.out.println(deck.toString());
-//		Application.run(Color.ORANGE, event -> {});
+		System.out.println(p1);
+		System.out.println(deck);
+		Application.run(Color.ORANGE, context -> {
+			
+		});
 	}
 }

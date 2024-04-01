@@ -1,21 +1,32 @@
 package codexnaturalis.card;
 
 import java.awt.Color;
+import java.awt.geom.Rectangle2D;
 import java.util.List;
+import java.util.Objects;
 
 import fr.umlv.zen5.ApplicationContext;
 
 public record GoldenCard(RessourceType type, 
-												 RessourceType leftUpCorner, 
-												 RessourceType rightUpCorner, 
-												 RessourceType leftDownCorner, 
-												 RessourceType rightDownCorner, 
-												 int point, 
-												 List<RessourceType> cost) implements Card {
+						 RessourceType leftUpCorner, 
+						 RessourceType rightUpCorner, 
+						 RessourceType leftDownCorner, 
+						 RessourceType rightDownCorner, 
+						 int point, 
+						 List<RessourceType> cost) implements Card {
 	
 	@Override
 	public void draw(ApplicationContext context, float x, float y) {
+		Objects.requireNonNull(context);
 		Color color = Card.getColor(type);
+		int widthCard = 200;
+		int heightCard = 80;
+		
+		context.renderFrame(graphics -> {
+			graphics.setColor(color);
+			var card = new Rectangle2D.Float(x, y, widthCard, heightCard);
+			graphics.fill(card);
+		});
 	}
 	
 	@Override
