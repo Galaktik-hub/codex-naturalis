@@ -5,8 +5,6 @@ import java.awt.Color;
 import fr.umlv.zen5.ApplicationContext;
 
 public interface Card {
-	@Override
-	public String toString();
 	public void draw(ApplicationContext context, float x, float y);
 	
 	public static Color getColor(RessourceType type) {
