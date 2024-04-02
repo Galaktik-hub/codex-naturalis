@@ -19,13 +19,26 @@ public record GoldenCard(RessourceType type,
 	public void draw(ApplicationContext context, float x, float y) {
 		Objects.requireNonNull(context);
 		Color color = Card.getColor(type);
+		Color leftUpCornerColor = Card.getColor(leftUpCorner);
+		Color rightUpCornerColor = Card.getColor(rightUpCorner);
+		Color leftDownCornerColor = Card.getColor(leftDownCorner);
+		Color rightDownCornerColor = Card.getColor(rightDownCorner);
 		int widthCard = 200;
 		int heightCard = 80;
+		int conerSize = 20;
 		
 		context.renderFrame(graphics -> {
 			graphics.setColor(color);
 			var card = new Rectangle2D.Float(x, y, widthCard, heightCard);
+			var leftUpCornerRectangle = new Rectangle2D.Float(x, y, conerSize, conerSize);
+			var rightUpCornerRectangle = new Rectangle2D.Float(widthCard - conerSize, y, conerSize, conerSize);
+			var leftDownCornerRectangle = new Rectangle2D.Float(x, heightCard - conerSize, conerSize, conerSize);
+			var rightDownCornerRectangle = new Rectangle2D.Float(widthCard - conerSize, heightCard - conerSize, conerSize, conerSize);
 			graphics.fill(card);
+			graphics.fill(leftUpCornerRectangle);
+			graphics.fill(rightUpCornerRectangle);
+			graphics.fill(leftDownCornerRectangle);
+			graphics.fill(rightUpCornerRectangle);
 		});
 	}
 	
