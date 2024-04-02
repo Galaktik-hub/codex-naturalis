@@ -31,14 +31,6 @@ public class Deck {
 		deck.remove(position);
 		return card;
 	}
-	
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
 
 	private void fill() {
 		this.deck.add(new RessourceCard(RessourceType.ANIMAL, RessourceType.NONE, RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.NONE, 0)); incrementDeckSize();
