@@ -26,19 +26,45 @@ public record GoldenCard(RessourceType type,
 		int widthCard = 200;
 		int heightCard = 80;
 		int conerSize = 20;
+		int borderSize = 2;
 		
 		context.renderFrame(graphics -> {
+//			Dessin de la carte
 			graphics.setColor(color);
 			var card = new Rectangle2D.Float(x, y, widthCard, heightCard);
-			var leftUpCornerRectangle = new Rectangle2D.Float(x, y, conerSize, conerSize);
-			var rightUpCornerRectangle = new Rectangle2D.Float(widthCard - conerSize, y, conerSize, conerSize);
-			var leftDownCornerRectangle = new Rectangle2D.Float(x, heightCard - conerSize, conerSize, conerSize);
-			var rightDownCornerRectangle = new Rectangle2D.Float(widthCard - conerSize, heightCard - conerSize, conerSize, conerSize);
 			graphics.fill(card);
+			
+//			Dessin du coin supérieur gauche
+			graphics.setColor(Color.RED);
+			var leftUpBorder = new Rectangle2D.Float(x, y, conerSize, conerSize);
+			graphics.fill(leftUpBorder);
+			graphics.setColor(leftUpCornerColor);
+			var leftUpCornerRectangle = new Rectangle2D.Float(x + borderSize, y + borderSize, conerSize - borderSize, conerSize - borderSize);
 			graphics.fill(leftUpCornerRectangle);
+			
+//			Dessin du coin supérieur droit
+			graphics.setColor(Color.RED);
+			var rightUpBorder = new Rectangle2D.Float(x + widthCard, y, conerSize, conerSize);
+			graphics.fill(rightUpBorder);
+			graphics.setColor(rightUpCornerColor);
+			var rightUpCornerRectangle = new Rectangle2D.Float((x + widthCard) - borderSize, y + borderSize, conerSize - borderSize, conerSize - borderSize);
 			graphics.fill(rightUpCornerRectangle);
+			
+//			Dessin du coin inférieur gauche
+			graphics.setColor(Color.RED);
+			var leftDownBorder = new Rectangle2D.Float(x, (y + heightCard) - conerSize, conerSize, conerSize);
+			graphics.fill(leftDownBorder);
+			graphics.setColor(leftDownCornerColor);
+			var leftDownCornerRectangle = new Rectangle2D.Float(x, (y + heightCard) - conerSize, conerSize - borderSize, conerSize - borderSize);
 			graphics.fill(leftDownCornerRectangle);
-			graphics.fill(rightUpCornerRectangle);
+			
+//			Dessin du coin inférieur droit
+			graphics.setColor(Color.RED);
+			var rightDownBorder = new Rectangle2D.Float((x + widthCard) - conerSize, (y + heightCard) - conerSize, conerSize, conerSize);
+			graphics.fill(rightDownBorder);
+			graphics.setColor(leftDownCornerColor);
+			var rightDownCornerRectangle = new Rectangle2D.Float((x + widthCard) - conerSize, (y + heightCard) - conerSize, conerSize - borderSize, conerSize - borderSize);
+			graphics.fill(rightDownCornerRectangle);
 		});
 	}
 	

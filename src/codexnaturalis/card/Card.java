@@ -10,13 +10,13 @@ public interface Card {
 	public static Color getColor(RessourceType type) {
 		switch (type) {
 			case ANIMAL:
-				return Color.BLUE;				
+				return Color.BLUE;
 			case FUNGI:
-				return Color.ORANGE;				
+				return Color.ORANGE;
 			case INSECT:
-				return Color.MAGENTA;				
+				return Color.MAGENTA;
 			case NONE:
-				return Color.BLACK;				
+				return Color.BLACK;
 			case PLANT:
 				return Color.GREEN;
 		}
