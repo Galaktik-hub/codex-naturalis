@@ -15,32 +15,37 @@ public record RessourceCard(RessourceType type,
 	@Override
 	public void draw(ApplicationContext context, float x, float y) {
 		Objects.requireNonNull(context);
-		Color color = Card.getColor(type);
-		Color leftUpCornerColor = Card.getColor(leftUpCorner);
-		Color rightUpCornerColor = Card.getColor(rightUpCorner);
-		Color leftDownCornerColor = Card.getColor(leftDownCorner);
-		Color rightDownCornerColor = Card.getColor(rightDownCorner);
+		
+		// On récupère la couleur de la ressource depuis l'interface Card
+		Color cardColor = Card.getColor(type); // Couleur de la bordure des coins
+		Color leftUpCornerColor = Card.getColor(leftUpCorner); // Couleur du coin supérieur gauche de la carte
+		Color rightUpCornerColor = Card.getColor(rightUpCorner); // Couleur du coin supérieur droit de la carte
+		Color leftDownCornerColor = Card.getColor(leftDownCorner); // Couleur du coin inférieur gauche de la carte
+		Color rightDownCornerColor = Card.getColor(rightDownCorner); // Couleur du coin inférieur droit de la carte
+		Color borderColor = Color.GRAY;
 		int widthCard = 200;
 		int heightCard = 80;
 		int cornerSize = 20;
 		int borderSize = 2;
 		
+		//Dessin de la carte
 		context.renderFrame(graphics -> {
-//			Dessin de la carte
-			graphics.setColor(color);
+			
+			// Dessin du rectangle carte
+			graphics.setColor(cardColor);
 			var card = new Rectangle2D.Float(x, y, widthCard, heightCard);
 			graphics.fill(card);
 			
 //			Dessin du coin supérieur gauche
-			graphics.setColor(Color.GRAY);
-			var leftUpBorder = new Rectangle2D.Float(x, y, cornerSize + borderSize, cornerSize + borderSize);
+			graphics.setColor(borderColor);
+			var leftUpBorder = new Rectangle2D.Float(x, y, cornerSize, cornerSize);
 			graphics.fill(leftUpBorder);
 			graphics.setColor(leftUpCornerColor);
-			var leftUpCornerRectangle = new Rectangle2D.Float(x + borderSize, y + borderSize, cornerSize - borderSize, cornerSize - borderSize);
+			var leftUpCornerRectangle = new Rectangle2D.Float(x, y, cornerSize - borderSize, cornerSize - borderSize);
 			graphics.fill(leftUpCornerRectangle);
 			
 //			Dessin du coin supérieur droit
-			graphics.setColor(Color.GRAY);
+			graphics.setColor(borderColor);
 			var rightUpBorder = new Rectangle2D.Float((x + widthCard) - cornerSize, y, cornerSize, cornerSize);
 			graphics.fill(rightUpBorder);
 			graphics.setColor(rightUpCornerColor);
@@ -48,19 +53,19 @@ public record RessourceCard(RessourceType type,
 			graphics.fill(rightUpCornerRectangle);
 			
 //			Dessin du coin inférieur gauche
-			graphics.setColor(Color.GRAY);
+			graphics.setColor(borderColor);
 			var leftDownBorder = new Rectangle2D.Float(x, (y + heightCard) - cornerSize, cornerSize, cornerSize);
 			graphics.fill(leftDownBorder);
 			graphics.setColor(leftDownCornerColor);
-			var leftDownCornerRectangle = new Rectangle2D.Float(x, (y + heightCard) - cornerSize, cornerSize - borderSize, cornerSize - borderSize);
+			var leftDownCornerRectangle = new Rectangle2D.Float(x, ((y + heightCard) - cornerSize) + borderSize, cornerSize - borderSize, cornerSize - borderSize);
 			graphics.fill(leftDownCornerRectangle);
 			
 //			Dessin du coin inférieur droit
-			graphics.setColor(Color.GRAY);
+			graphics.setColor(borderColor);
 			var rightDownBorder = new Rectangle2D.Float((x + widthCard) - cornerSize, (y + heightCard) - cornerSize, cornerSize, cornerSize);
 			graphics.fill(rightDownBorder);
 			graphics.setColor(leftDownCornerColor);
-			var rightDownCornerRectangle = new Rectangle2D.Float((x + widthCard) - cornerSize, (y + heightCard) - cornerSize, cornerSize - borderSize, cornerSize - borderSize);
+			var rightDownCornerRectangle = new Rectangle2D.Float(((x + widthCard) - cornerSize) + borderSize, ((y + heightCard) - cornerSize) + borderSize, cornerSize - borderSize, cornerSize - borderSize);
 			graphics.fill(rightDownCornerRectangle);
 		});
 	}

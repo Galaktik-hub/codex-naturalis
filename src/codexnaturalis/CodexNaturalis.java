@@ -14,7 +14,6 @@ public class CodexNaturalis {
 		System.out.println(p1);
 		System.out.println(deck);
 		Application.run(Color.ORANGE, context -> {
-			var counter = 0;
 			int x = 40;
 			int y = 40;
 			int i = 0;
@@ -25,7 +24,6 @@ public class CodexNaturalis {
 				if (event == null) {
 					continue;
 				} else {
-					counter++;
 					deck.getAndRemove(i).draw(context, x, y);
 					x += widthRectangle+50;
 					i++;
