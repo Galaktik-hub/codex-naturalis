@@ -26,6 +26,14 @@ public class Deck {
 		return deck.get(position);
 	}
 	
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 	public Card getAndRemove(int position) {
 		Card card = deck.get(position);
 		deck.remove(position);
