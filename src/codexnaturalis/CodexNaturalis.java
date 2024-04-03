@@ -4,6 +4,7 @@ import java.awt.Color;
 import codexnaturalis.card.Deck;
 import codexnaturalis.player.Player;
 import fr.umlv.zen5.Application;
+import fr.umlv.zen5.Event.Action;
 
 public class CodexNaturalis {
 
@@ -23,10 +24,14 @@ public class CodexNaturalis {
 				var event = context.pollOrWaitEvent(10);
 				if (event == null) {
 					continue;
-				} else {
+				}
+				var action = event.getAction();
+				if (action == Action.POINTER_DOWN) {
+					System.out.println(action);
 					deck.getAndRemove(i).draw(context, x, y);
 					x += widthRectangle+50;
 					i++;
+					continue;
 				}
 			}
 		});

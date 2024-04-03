@@ -36,31 +36,49 @@ public record RessourceCard(RessourceType type,
 			var card = new Rectangle2D.Float(x, y, widthCard, heightCard);
 			graphics.fill(card);
 			
-//			Dessin du coin supérieur gauche
+			// Dessin du coin avec des bordures, deux rectangles (la bordure plus grande que l'autre)
+			
+			// Dessin du coin supérieur gauche
+			// Dessin de la bordure du coin en gris
 			graphics.setColor(borderColor);
 			var leftUpBorder = new Rectangle2D.Float(x, y, cornerSize, cornerSize);
 			graphics.fill(leftUpBorder);
+			
+			// Dessin du coin 'dans' la bordure afin de voir seulement les bordures avec les calculs de coordonnées
 			graphics.setColor(leftUpCornerColor);
 			var leftUpCornerRectangle = new Rectangle2D.Float(x, y, cornerSize - borderSize, cornerSize - borderSize);
 			graphics.fill(leftUpCornerRectangle);
 			
-//			Dessin du coin supérieur droit
+			
+			
+			//Dessin du coin supérieur droit
+			// Dessin de la bordure du coin en gris
 			graphics.setColor(borderColor);
-			var rightUpBorder = new Rectangle2D.Float((x + widthCard) - cornerSize, y, cornerSize, cornerSize);
+			var rightUpBorder = new Rectangle2D.Float((x + widthCard) - cornerSize, y, cornerSize, cornerSize); // coordonnées afin que la bordure soit plus grande que le coin
 			graphics.fill(rightUpBorder);
+			
+			// Dessin du coin 'dans' la bordure afin de voir seulement les bordures avec les calculs de coordonnées
 			graphics.setColor(rightUpCornerColor);
 			var rightUpCornerRectangle = new Rectangle2D.Float((x + widthCard) - cornerSize + borderSize, y, cornerSize - borderSize, cornerSize - borderSize);
 			graphics.fill(rightUpCornerRectangle);
 			
-//			Dessin du coin inférieur gauche
+			
+			// Dessin du coin inférieur gauche
+			// Dessin de la bordure du coin en gris
 			graphics.setColor(borderColor);
 			var leftDownBorder = new Rectangle2D.Float(x, (y + heightCard) - cornerSize, cornerSize, cornerSize);
 			graphics.fill(leftDownBorder);
+			
+			// Dessin du coin inférieur gauche
+			// Dessin de la bordure du coin en gris
 			graphics.setColor(leftDownCornerColor);
 			var leftDownCornerRectangle = new Rectangle2D.Float(x, ((y + heightCard) - cornerSize) + borderSize, cornerSize - borderSize, cornerSize - borderSize);
 			graphics.fill(leftDownCornerRectangle);
 			
-//			Dessin du coin inférieur droit
+			
+			
+			// Dessin du coin inférieur droit
+			// Dessin de la bordure du coin en gris
 			graphics.setColor(borderColor);
 			var rightDownBorder = new Rectangle2D.Float((x + widthCard) - cornerSize, (y + heightCard) - cornerSize, cornerSize, cornerSize);
 			graphics.fill(rightDownBorder);
