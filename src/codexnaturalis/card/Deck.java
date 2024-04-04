@@ -23,7 +23,7 @@ public class Deck {
 	}
 	
 	public Card get(int position) {
-		return deck.get(position);
+		return deck.get(position);	// On récupère une carte, sans la supprimer
 	}
 	
 	public int getSize() {
@@ -35,8 +35,9 @@ public class Deck {
 	}
 
 	public Card getAndRemove(int position) {
-		Card card = deck.get(position);
-		deck.remove(position);
+		Card card = deck.get(position);	// On récupère la carte
+		deck.remove(position);	// Puis on l'enlève
+		this.decrementDeckSize();
 		return card;
 	}
 

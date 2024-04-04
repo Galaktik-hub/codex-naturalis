@@ -82,7 +82,7 @@ public record RessourceCard(RessourceType type,
 			graphics.setColor(borderColor);
 			var rightDownBorder = new Rectangle2D.Float((x + widthCard) - cornerSize, (y + heightCard) - cornerSize, cornerSize, cornerSize);
 			graphics.fill(rightDownBorder);
-			graphics.setColor(leftDownCornerColor);
+			graphics.setColor(rightDownCornerColor);
 			var rightDownCornerRectangle = new Rectangle2D.Float(((x + widthCard) - cornerSize) + borderSize, ((y + heightCard) - cornerSize) + borderSize, cornerSize - borderSize, cornerSize - borderSize);
 			graphics.fill(rightDownCornerRectangle);
 		});
