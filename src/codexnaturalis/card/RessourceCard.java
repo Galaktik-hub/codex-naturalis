@@ -13,7 +13,7 @@ public record RessourceCard(RessourceType type,
 						  RessourceType rightDownCorner, 
 						  int point) implements Card {
 	@Override
-	public void draw(ApplicationContext context, float x, float y) {
+	public void draw(ApplicationContext context, Coordinates coordinates) {
 		Objects.requireNonNull(context);
 		
 		// On récupère la couleur de la ressource depuis l'interface Card
@@ -27,6 +27,8 @@ public record RessourceCard(RessourceType type,
 		int heightCard = 80;
 		int cornerSize = 20;
 		int borderSize = 2;
+		float x = coordinates.x();
+		float y = coordinates.y();
 		
 		//Dessin de la carte
 		context.renderFrame(graphics -> {
