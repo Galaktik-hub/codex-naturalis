@@ -17,7 +17,8 @@ public record GoldenCard(RessourceType type,
 	
 	@Override
 	public void draw(ApplicationContext context, Coordinates coordinates) {
-Objects.requireNonNull(context);
+		Objects.requireNonNull(context);
+		Objects.requireNonNull(coordinates);
 		
 		// On récupère la couleur de la ressource depuis l'interface Card
 		Color cardColor = Card.getColor(type); // Couleur de la bordure des coins
