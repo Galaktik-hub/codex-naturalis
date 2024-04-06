@@ -25,8 +25,7 @@ public class Deck {
 	}
 	
 	public Card drawCard() {
-		Card card = deck.removeLast();
-		return card;
+		return deck.removeLast();
 	}
 	
 	public boolean isEmpty() {
