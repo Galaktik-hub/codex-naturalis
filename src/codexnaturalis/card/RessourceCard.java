@@ -19,27 +19,24 @@ public record RessourceCard(RessourceType type,
 	    Objects.requireNonNull(coordinates);
 	    
 	    // Récupération des couleurs des coins et de la carte
-	    Color cardColor = Card.getColor(type); 
-	    Color leftUpCornerColor = Card.getColor(leftUpCorner); 
-	    Color rightUpCornerColor = Card.getColor(rightUpCorner); 
-	    Color leftDownCornerColor = Card.getColor(leftDownCorner); 
-	    Color rightDownCornerColor = Card.getColor(rightDownCorner); 
-	    Color borderColor = Color.GRAY;
-	    int widthCard = 200;
-	    int heightCard = 80;
-	    int cornerSize = 20;
-	    int borderSize = 2;
+	    Color cardColor = Card.getColor(type);
+	    Color leftUpCornerColor = Card.getColor(leftUpCorner);
+	    Color rightUpCornerColor = Card.getColor(rightUpCorner);
+	    Color leftDownCornerColor = Card.getColor(leftDownCorner);
+	    Color rightDownCornerColor = Card.getColor(rightDownCorner);
 	    float x = coordinates.x();
 	    float y = coordinates.y();
 	    
-	    // Dessin de la carte et de ses coins
-	    context.renderFrame(graphics -> {
-	        drawCard(graphics, x, y, widthCard, heightCard, cardColor);
-	        drawCorner(graphics, x, y, cornerSize, borderSize, leftUpCornerColor, borderColor);
-	        drawCorner(graphics, x + widthCard - cornerSize, y, cornerSize, borderSize, rightUpCornerColor, borderColor);
-	        drawCorner(graphics, x, y + heightCard - cornerSize, cornerSize, borderSize, leftDownCornerColor, borderColor);
-	        drawCorner(graphics, x + widthCard - cornerSize, y + heightCard - cornerSize, cornerSize, borderSize, rightDownCornerColor, borderColor);
-	    });
+	    if (this.verifyClickMouse(coordinates)) {
+	    	 // Dessin de la carte et de ses coins
+		    context.renderFrame(graphics -> {
+		        drawCard(graphics, x, y, width(), height(), cardColor);
+		        drawCorner(graphics, x, y, cornerSize(), bordersize(), leftUpCornerColor);
+		        drawCorner(graphics, x + width() - cornerSize(), y, cornerSize(), bordersize(), rightUpCornerColor);
+		        drawCorner(graphics, x, y + height() - cornerSize(), cornerSize(), bordersize(), leftDownCornerColor);
+		        drawCorner(graphics, x + width() - cornerSize(), y + height() - cornerSize(), cornerSize(), bordersize(), rightDownCornerColor);
+		    });
+		}
 	}
 
 	// Méthode pour dessiner la carte
@@ -48,25 +45,21 @@ public record RessourceCard(RessourceType type,
 		Objects.requireNonNull(color);
 		
 	    graphics.setColor(color);
-	    var card = new Rectangle2D.Float(x, y, width, height);
-	    graphics.fill(card);
+	    graphics.fill(new Rectangle2D.Float(x, y, width, height));
 	}
 
 	// Méthode pour dessiner un coin de la carte
-	private void drawCorner(Graphics2D graphics, float x, float y, int size, int borderSize, Color fillColor, Color borderColor) {
+	private void drawCorner(Graphics2D graphics, float x, float y, int size, int borderSize, Color fillColor) {
 		Objects.requireNonNull(graphics);
 		Objects.requireNonNull(fillColor);
-		Objects.requireNonNull(borderColor);
 		
 	    // Dessin de la bordure du coin
-	    graphics.setColor(borderColor);
-	    var border = new Rectangle2D.Float(x, y, size, size);
-	    graphics.fill(border);
+	    graphics.setColor(Color.GRAY);
+	    graphics.fill(new Rectangle2D.Float(x, y, size, size));
 	    
 	    // Dessin du coin rempli
 	    graphics.setColor(fillColor);
-	    var corner = new Rectangle2D.Float(x + borderSize, y + borderSize, size - borderSize * 2, size - borderSize * 2);
-	    graphics.fill(corner);
+	    graphics.fill(new Rectangle2D.Float(x + borderSize, y + borderSize, size - borderSize * 2, size - borderSize * 2));
 	}
 	
 	@Override

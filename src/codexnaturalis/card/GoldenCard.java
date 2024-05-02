@@ -27,23 +27,20 @@ public record GoldenCard(RessourceType type,
 	    Color rightUpCornerColor = Card.getColor(rightUpCorner);
 	    Color leftDownCornerColor = Card.getColor(leftDownCorner);
 	    Color rightDownCornerColor = Card.getColor(rightDownCorner);
-	    
-	    int widthCard = 200;
-	    int heightCard = 80;
-	    int cornerSize = 20;
-	    int borderSize = 2;
 	    float x = coordinates.x();
 	    float y = coordinates.y();
 	    
-	    // Dessin de la carte et de ses coins
-	    context.renderFrame(graphics -> {
-	        drawBorder(graphics, x, y, widthCard, heightCard, Color.ORANGE, borderSize);
-	        drawCard(graphics, x, y, widthCard, heightCard, cardColor);
-	        drawCorner(graphics, x, y, cornerSize, borderSize, leftUpCornerColor);
-	        drawCorner(graphics, x + widthCard - cornerSize, y, cornerSize, borderSize, rightUpCornerColor);
-	        drawCorner(graphics, x, y + heightCard - cornerSize, cornerSize, borderSize, leftDownCornerColor);
-	        drawCorner(graphics, x + widthCard - cornerSize, y + heightCard - cornerSize, cornerSize, borderSize, rightDownCornerColor);
-	    });
+	    if (this.verifyClickMouse(coordinates)) {
+	    	// Dessin de la carte et de ses coins
+		    context.renderFrame(graphics -> {
+		        drawBorder(graphics, x, y, width(), height(), Color.ORANGE, bordersize());
+		        drawCard(graphics, x, y, width(), height(), cardColor);
+		        drawCorner(graphics, x, y, cornerSize(), bordersize(), leftUpCornerColor);
+		        drawCorner(graphics, x + width() - cornerSize(), y, cornerSize(), bordersize(), rightUpCornerColor);
+		        drawCorner(graphics, x, y + height() - cornerSize(), cornerSize(), bordersize(), leftDownCornerColor);
+		        drawCorner(graphics, x + width() - cornerSize(), y + height() - cornerSize(), cornerSize(), bordersize(), rightDownCornerColor);
+		    });
+		}
 	}
 
 	// Méthode pour dessiner la carte

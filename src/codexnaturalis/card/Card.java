@@ -15,11 +15,31 @@ public interface Card {
 				return Color.ORANGE;
 			case INSECT:
 				return Color.MAGENTA;
-			case NONE:
-				return Color.BLACK;
 			case PLANT:
 				return Color.GREEN;
+			case NONE:
+				return Color.BLACK;
 		}
 		return Color.WHITE;
+	}
+	
+	default public int width() {
+		return 200;
+	}
+	
+	default public int height() {
+		return 80;
+	}
+	
+	default public int cornerSize() {
+		return 20;
+	}
+	
+	default public int bordersize() {
+		return 2;
+	}
+	
+	default public boolean verifyClickMouse(Coordinates coordinates) {
+		return false;
 	}
 }
