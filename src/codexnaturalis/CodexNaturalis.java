@@ -15,7 +15,7 @@ public class CodexNaturalis {
 		
 		System.out.println(p1);
 		System.out.println(deck);
-		Application.run(Color.ORANGE, context -> {			
+		Application.run(Color.GREEN, context -> {			
 			// Boucle du jeu
 			while (true) {
 				var event = context.pollOrWaitEvent(10); // Récuperer un event

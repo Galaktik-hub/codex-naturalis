@@ -1,13 +1,14 @@
 package codexnaturalis;
 
+import java.util.HashMap;
+
+import codexnaturalis.card.Card;
+import codexnaturalis.card.Coordinates;
+
 public class Board {
-	/*
-	 * Creation of a 2d matrix to represent game view
-	 */
-	public int[][] board;
-	
+	private final HashMap<Coordinates, Card> board;
+
 	public Board() {
-//		Dans une matrice les coordonnées doivent être des cartes première carte (0,0)
-//		Avec BoardView et méthode scale on peut redimensionner
+		this.board = new HashMap<Coordinates, Card>();
 	}
 }

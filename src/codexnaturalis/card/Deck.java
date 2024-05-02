@@ -40,6 +40,7 @@ public class Deck {
 		this.deck.add(new RessourceCard(RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.NONE, RessourceType.ANIMAL, RessourceType.NONE, 0)); 
 		this.deck.add(new RessourceCard(RessourceType.ANIMAL, RessourceType.NONE, RessourceType.ANIMAL, RessourceType.NONE, RessourceType.NONE, 1));
 		this.deck.add(new RessourceCard(RessourceType.ANIMAL, RessourceType.NONE, RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.NONE, 1));
+		this.deck.add(new GoldenCard(RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.ANIMAL, RessourceType.NONE, RessourceType.ANIMAL, 1, null));
 	}
 	
 	@Override

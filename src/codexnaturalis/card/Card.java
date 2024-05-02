@@ -6,7 +6,7 @@ import fr.umlv.zen5.ApplicationContext;
 
 public interface Card {
 	public void draw(ApplicationContext context, Coordinates coordinates);
-	
+
 	public static Color getColor(RessourceType type) {
 		switch (type) {
 			case ANIMAL:
