@@ -61,6 +61,23 @@ public record RessourceCard(RessourceType type,
 	}
 	
 	@Override
+	public boolean isValidCorner(int corner) {
+		switch(corner) {
+		// En haut à gauche = 0, en haut à droite = 1, en bas à droite = 2, en bas à gauche = 3
+		case 0:
+			return !(this.leftUpCorner.equals(RessourceType.NONE));
+		case 1:
+			return !(this.rightUpCorner.equals(RessourceType.NONE));
+		case 2:
+			return !(this.rightDownCorner.equals(RessourceType.NONE));
+		case 3:
+			return !(this.leftDownCorner.equals(RessourceType.NONE));
+		default:
+			throw new IllegalArgumentException("Le coin choisi n'est pas possible");
+		}
+	}
+	
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Carte ressource | Point(s): ")

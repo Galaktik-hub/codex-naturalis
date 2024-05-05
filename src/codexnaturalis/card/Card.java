@@ -18,11 +18,14 @@ public interface Card {
 				return Color.MAGENTA;
 			case PLANT:
 				return Color.GREEN;
-			case NONE:
+			case VOID:
 				return Color.BLACK;
+			default:
+				return Color.WHITE;
 		}
-		return Color.WHITE;
 	}
+	
+	public boolean isValidCorner(int corner);
 	
 	default public int width() {
 		return 200;

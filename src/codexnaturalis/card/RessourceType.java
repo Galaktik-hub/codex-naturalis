@@ -1,5 +1,5 @@
 package codexnaturalis.card;
 
 public enum RessourceType {
-	ANIMAL, PLANT, FUNGI, INSECT, NONE;
+	ANIMAL, PLANT, FUNGI, INSECT, VOID, NONE;
 }
