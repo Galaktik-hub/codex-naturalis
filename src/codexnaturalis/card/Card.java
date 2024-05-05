@@ -1,13 +1,14 @@
 package codexnaturalis.card;
 
 import java.awt.Color;
-
+import java.util.Objects;
 import fr.umlv.zen5.ApplicationContext;
 
 public interface Card {
 	public void draw(ApplicationContext context, Coordinates coordinates);
 
 	public static Color getColor(RessourceType type) {
+		Objects.requireNonNull(type);
 		switch (type) {
 			case ANIMAL:
 				return Color.BLUE;
@@ -37,9 +38,5 @@ public interface Card {
 	
 	default public int bordersize() {
 		return 2;
-	}
-	
-	default public boolean verifyClickMouse(Coordinates coordinates) {
-		return false;
 	}
 }

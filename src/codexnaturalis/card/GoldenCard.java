@@ -5,7 +5,6 @@ import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.util.List;
 import java.util.Objects;
-
 import fr.umlv.zen5.ApplicationContext;
 
 public record GoldenCard(RessourceType type, 
@@ -30,17 +29,15 @@ public record GoldenCard(RessourceType type,
 	    float x = coordinates.x();
 	    float y = coordinates.y();
 	    
-	    if (this.verifyClickMouse(coordinates)) {
-	    	// Dessin de la carte et de ses coins
-		    context.renderFrame(graphics -> {
-		        drawBorder(graphics, x, y, width(), height(), Color.ORANGE, bordersize());
-		        drawCard(graphics, x, y, width(), height(), cardColor);
-		        drawCorner(graphics, x, y, cornerSize(), bordersize(), leftUpCornerColor);
-		        drawCorner(graphics, x + width() - cornerSize(), y, cornerSize(), bordersize(), rightUpCornerColor);
-		        drawCorner(graphics, x, y + height() - cornerSize(), cornerSize(), bordersize(), leftDownCornerColor);
-		        drawCorner(graphics, x + width() - cornerSize(), y + height() - cornerSize(), cornerSize(), bordersize(), rightDownCornerColor);
-		    });
-		}
+    	// Dessin de la carte et de ses coins
+	    context.renderFrame(graphics -> {
+	        drawBorder(graphics, x, y, width(), height(), Color.ORANGE, bordersize());
+	        drawCard(graphics, x, y, width(), height(), cardColor);
+	        drawCorner(graphics, x, y, cornerSize(), bordersize(), leftUpCornerColor);
+	        drawCorner(graphics, x + width() - cornerSize(), y, cornerSize(), bordersize(), rightUpCornerColor);
+	        drawCorner(graphics, x, y + height() - cornerSize(), cornerSize(), bordersize(), leftDownCornerColor);
+	        drawCorner(graphics, x + width() - cornerSize(), y + height() - cornerSize(), cornerSize(), bordersize(), rightDownCornerColor);
+	    });
 	}
 
 	// Méthode pour dessiner la carte

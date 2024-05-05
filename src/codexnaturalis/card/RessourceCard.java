@@ -27,16 +27,14 @@ public record RessourceCard(RessourceType type,
 	    float x = coordinates.x();
 	    float y = coordinates.y();
 	    
-	    if (this.verifyClickMouse(coordinates)) {
-	    	 // Dessin de la carte et de ses coins
-		    context.renderFrame(graphics -> {
-		        drawCard(graphics, x, y, width(), height(), cardColor);
-		        drawCorner(graphics, x, y, cornerSize(), bordersize(), leftUpCornerColor);
-		        drawCorner(graphics, x + width() - cornerSize(), y, cornerSize(), bordersize(), rightUpCornerColor);
-		        drawCorner(graphics, x, y + height() - cornerSize(), cornerSize(), bordersize(), leftDownCornerColor);
-		        drawCorner(graphics, x + width() - cornerSize(), y + height() - cornerSize(), cornerSize(), bordersize(), rightDownCornerColor);
-		    });
-		}
+    	 // Dessin de la carte et de ses coins
+	    context.renderFrame(graphics -> {
+	        drawCard(graphics, x, y, width(), height(), cardColor);
+	        drawCorner(graphics, x, y, cornerSize(), bordersize(), leftUpCornerColor);
+	        drawCorner(graphics, x + width() - cornerSize(), y, cornerSize(), bordersize(), rightUpCornerColor);
+	        drawCorner(graphics, x, y + height() - cornerSize(), cornerSize(), bordersize(), leftDownCornerColor);
+	        drawCorner(graphics, x + width() - cornerSize(), y + height() - cornerSize(), cornerSize(), bordersize(), rightDownCornerColor);
+	    });
 	}
 
 	// Méthode pour dessiner la carte
