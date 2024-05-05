@@ -31,7 +31,7 @@ public class CodexNaturalis {
 	                        Card randomCard = deck.drawCard();
 	                        Coordinates coordinates = new Coordinates(event.getLocation().x, event.getLocation().y);
 	                        if (firstCardPlaced || board.getSize() == 0) {
-	                            if (board.getSize() > 0 && !board.isNoneCorner(coordinates)) {
+	                            if (board.getSize() > 0 && !board.isValidCorner(coordinates)) {
 	                                System.out.println("Cliquer sur un coin de couleur noir");
 	                            } else {
 	                            	// Dessiner la carte

@@ -22,7 +22,7 @@ public class Board {
 		return board.size();
 	}
 	
-	public boolean isNoneCorner(Coordinates coordinates) {
+	public boolean isValidCorner(Coordinates coordinates) {
 		Objects.requireNonNull(coordinates);
 		return false;
 	}
