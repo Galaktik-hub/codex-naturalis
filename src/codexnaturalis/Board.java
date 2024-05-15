@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import codexnaturalis.card.Card;
 import codexnaturalis.card.Coordinates;
+import codexnaturalis.player.Player;
 
 public class Board {
 	private final HashMap<Coordinates, Card> board;
@@ -25,6 +26,10 @@ public class Board {
 	public boolean isValidCorner(Coordinates coordinates) {
 		Objects.requireNonNull(coordinates);
 		return false;
+	}
+	
+	public void drawHand(Player p) {
+		
 	}
 	
 	@Override
