@@ -1,8 +1,13 @@
 package codexnaturalis.player;
 
+import java.util.ArrayList;
+
+import codexnaturalis.card.Card;
+
 public class Player {
 	private final int id;
 	private int score = 0;
+	private final ArrayList<Card> hand = new ArrayList<>();
 	
 	public Player(int id) {
 		this.id = id;
