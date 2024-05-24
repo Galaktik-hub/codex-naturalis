@@ -17,7 +17,7 @@ public class CodexNaturalis {
 	        Deck deck = new Deck();
 
 	        System.out.println(p1);
-	        System.out.println(deck);
+	        System.out.println();
 	        Application.run(Color.BLACK, context -> {
 	            // Boucle du jeu
 	            while (true) {
