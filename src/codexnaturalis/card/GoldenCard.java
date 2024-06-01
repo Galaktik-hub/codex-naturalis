@@ -7,13 +7,14 @@ import java.util.List;
 import java.util.Objects;
 import fr.umlv.zen5.ApplicationContext;
 
-public record GoldenCard(RessourceType type, 
-						 RessourceType leftUpCorner, 
-						 RessourceType rightUpCorner, 
-						 RessourceType leftDownCorner, 
-						 RessourceType rightDownCorner, 
-						 int point, 
-						 List<RessourceType> cost) implements Card {
+public record GoldenCard(Collectible type,
+						 Collectible leftUpCorner,
+						 Collectible rightUpCorner,
+						 Collectible leftDownCorner,
+						 Collectible rightDownCorner,
+						 List<Collectible> cost,
+						 String pointType,
+						 int point) implements Card {
 	
 	@Override
 	public void draw(ApplicationContext context, Coordinates coordinates) {
@@ -71,19 +72,14 @@ public record GoldenCard(RessourceType type,
 	
 	@Override
 	public boolean isValidCorner(int corner) {
-		switch(corner) {
-		// En haut à gauche = 0, en haut à droite = 1, en bas à droite = 2, en bas à gauche = 3
-		case 0:
-			return !(this.leftUpCorner.equals(RessourceType.NONE));
-		case 1:
-			return !(this.rightUpCorner.equals(RessourceType.NONE));
-		case 2:
-			return !(this.rightDownCorner.equals(RessourceType.NONE));
-		case 3:
-			return !(this.leftDownCorner.equals(RessourceType.NONE));
-		default:
-			throw new IllegalArgumentException("Le coin choisi n'est pas possible");
-		}
+        return switch (corner) {
+            // En haut à gauche = 0, en haut à droite = 1, en bas à droite = 2, en bas à gauche = 3
+            case 0 -> !(this.leftUpCorner.equals(RessourceType.EMPTY));
+            case 1 -> !(this.rightUpCorner.equals(RessourceType.EMPTY));
+            case 2 -> !(this.rightDownCorner.equals(RessourceType.EMPTY));
+            case 3 -> !(this.leftDownCorner.equals(RessourceType.EMPTY));
+            default -> throw new IllegalArgumentException("Le coin choisi n'est pas possible");
+        };
 	}
 	
 	@Override

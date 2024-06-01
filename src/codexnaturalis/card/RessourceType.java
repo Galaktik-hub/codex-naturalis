@@ -1,5 +1,5 @@
 package codexnaturalis.card;
 
-public enum RessourceType {
-	ANIMAL, PLANT, FUNGI, INSECT, VOID, NONE;
+public enum RessourceType implements Collectible {
+	ANIMAL, PLANT, FUNGI, INSECT, INVISIBLE, EMPTY;
 }

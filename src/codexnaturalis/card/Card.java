@@ -7,24 +7,21 @@ import fr.umlv.zen5.ApplicationContext;
 public interface Card {
 	public void draw(ApplicationContext context, Coordinates coordinates);
 
-	public static Color getColor(RessourceType type) {
+	public static Color getColor(Collectible type) {
 		Objects.requireNonNull(type);
-		switch (type) {
-			case ANIMAL:
-				return Color.BLUE;
-			case FUNGI:
-				return Color.ORANGE;
-			case INSECT:
-				return Color.MAGENTA;
-			case PLANT:
-				return Color.GREEN;
-			case VOID:
-				return Color.BLACK;
-			default:
-				return Color.WHITE;
-		}
+        return switch (type) {
+			case RessourceType.ANIMAL -> Color.BLUE;
+			case RessourceType.FUNGI -> Color.ORANGE;
+			case RessourceType.INSECT -> Color.MAGENTA;
+			case RessourceType.PLANT -> Color.GREEN;
+			case RessourceType.INVISIBLE -> Color.BLACK;
+			case Artefact.INKWELL -> Color.RED;
+			case Artefact.MANUSCRIPT -> Color.YELLOW;
+			case Artefact.QUILL -> Color.PINK;
+            default -> Color.WHITE;
+        };
 	}
-	
+
 	public boolean isValidCorner(int corner);
 	
 	default public int width() {
