@@ -9,7 +9,7 @@ ResourceCard Recto R:Fungi R:Insect A:Manuscript Invisible Kingdom Fungi Scoring
 ResourceCard Recto A:Manuscript R:Insect Invisible R:Fungi Kingdom Insect Scoring None
 ResourceCard Recto R:Insect R:Plant A:Inkwell Invisible Kingdom Insect Scoring None
 ResourceCard Recto R:Insect Invisible Empty Empty Kingdom Insect Scoring D:1
-ResourceCard Recto Invisible Empty R:Insect R:insect Kingdom Insect Scoring None
+ResourceCard Recto Invisible Empty R:Insect R:Insect Kingdom Insect Scoring None
 ResourceCard Recto A:Quill Invisible R:Animal R:Fungi Kingdom Animal Scoring None
 ResourceCard Recto A:Manuscript Invisible R:Plant R:Animal Kingdom Plant Scoring None
 ResourceCard Recto R:Plant R:Animal Invisible A:Manuscript Kingdom Animal Scoring None
@@ -84,19 +84,3 @@ GoldCard Recto Empty A:Manuscript Invisible Invisible Kingdom Insect Cost Insect
 GoldCard Recto Empty Empty Invisible Invisible Kingdom Insect Cost Insect Insect Insect Insect Insect Scoring D:5
 GoldCard Recto A:Inkwell Invisible Empty Invisible Kingdom Insect Cost Insect Insect Insect Scoring D:3
 GoldCard Recto Empty Invisible Empty Empty Kingdom Animal Cost Animal Animal Animal Fungi Scoring C:2
-Objective Pattern Fungi TopRight Fungi TopRight Fungi Scoring D:2
-Objective Pattern Animal TopRight Animal TopRight Animal Scoring D:2
-Objective Pattern Insect BottomRight Insect BottomRight Insect Scoring D:2
-Objective Pattern Plant BottomRight Plant BottomRight Plant Scoring D:2
-Objective Pattern Animal Top Animal TopRight Fungi Scoring D:3
-Objective Pattern Fungi Bottom Fungi BottomRight Plant Scoring D:3
-Objective Pattern Plant Bottom Plant BottomLeft Insect Scoring D:3
-Objective Pattern Insect Top Insect TopLeft Animal Scoring D:3
-Objective Resource Animal Animal Animal Scoring D:2
-Objective Resource Insect Insect Insect Scoring D:2
-Objective Resource Plant Plant Plant Scoring D:2
-Objective Resource Fungi Fungi Fungi Scoring D:2
-Objective Artifact Manuscript Manuscript Scoring D:2
-Objective Artifact Inkwell Inkwell Scoring D:2
-Objective Artifact Quill Quill Scoring D:2
-Objective Artifact Quill Inkwell Manuscript Scoring D:3

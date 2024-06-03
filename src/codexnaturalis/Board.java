@@ -5,12 +5,15 @@ import java.util.Objects;
 import codexnaturalis.card.Card;
 import codexnaturalis.card.Coordinates;
 import codexnaturalis.player.Player;
+import fr.umlv.zen5.ApplicationContext;
 
 public class Board {
 	private final HashMap<Coordinates, Card> board;
+	private final HashMap<Pair, Card> boardUtilisateur;
 
 	public Board() {
 		this.board = new HashMap<Coordinates, Card>();
+		this.boardUtilisateur = new HashMap<Pair, Card>();
 	}
 	
 	public void add(Coordinates coordinates, Card card) {
@@ -25,11 +28,13 @@ public class Board {
 	
 	public boolean isValidCorner(Coordinates coordinates) {
 		Objects.requireNonNull(coordinates);
-		return false;
+		return true;
 	}
 	
-	public void drawHand(Player p) {
-		
+	public void drawHand(Player p, ApplicationContext context) {
+		Objects.requireNonNull(p);
+		Objects.requireNonNull(context);
+		p.drawHand(context);
 	}
 	
 	@Override

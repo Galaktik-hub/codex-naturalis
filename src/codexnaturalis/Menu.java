@@ -3,16 +3,16 @@ package codexnaturalis;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.geom.Rectangle2D;
+import java.util.Objects;
 
-import fr.umlv.zen5.Application;
+import fr.umlv.zen5.ApplicationContext;
 import fr.umlv.zen5.ScreenInfo;
 import fr.umlv.zen5.Event.Action;
 
 public class Menu {
 	
-	public void drawMenu() {
-		
-		Application.run(Color.darkGray, context -> {
+	public static void drawMenu(ApplicationContext context) {
+			Objects.requireNonNull(context);
 			boolean gameStarted = false;
 			ScreenInfo screenInfo = context.getScreenInfo();
 			float screenWidth = screenInfo.getWidth();
@@ -61,6 +61,7 @@ public class Menu {
 						
 						if (x >= newGameButtonX && x <= newGameButtonX + buttonWidth && y >= newGameButtonY && y <= newGameButtonY + buttonHeight) {
                             gameStarted = true;
+                            Menu.clearMenu(context);
                             break;
                         }
 						
@@ -70,7 +71,17 @@ public class Menu {
 					}
 					continue;
 				}
-			}
-		});
+		}
+	}
+	
+	public static void clearMenu(ApplicationContext context) {
+		Objects.requireNonNull(context);
+		ScreenInfo screenInfo = context.getScreenInfo();
+		float screenWidth = screenInfo.getWidth();
+		float screenHeight = screenInfo.getHeight();
+		context.renderFrame(graphics -> {
+			graphics.setColor(Color.BLACK);
+		    graphics.fill(new Rectangle2D.Float(0, 0, screenWidth, screenHeight));
+	    });
 	}
 }

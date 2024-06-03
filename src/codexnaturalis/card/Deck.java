@@ -34,7 +34,6 @@ public class Deck {
 		return getSize() == 0;
 	}
 
-
 	
 	@Override
 	public String toString() {
