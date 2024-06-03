@@ -1,25 +1,13 @@
 package codexnaturalis.card;
 
 import java.awt.Color;
-import java.util.Objects;
 import fr.umlv.zen5.ApplicationContext;
 
 public interface Card {
 	public void draw(ApplicationContext context, Coordinates coordinates);
 
-	public static Color getColor(Collectible type) {
-		Objects.requireNonNull(type);
-        return switch (type) {
-			case RessourceType.ANIMAL -> Color.BLUE;
-			case RessourceType.FUNGI -> Color.ORANGE;
-			case RessourceType.INSECT -> Color.MAGENTA;
-			case RessourceType.PLANT -> Color.GREEN;
-			case RessourceType.INVISIBLE -> Color.BLACK;
-			case Artefact.INKWELL -> Color.RED;
-			case Artefact.MANUSCRIPT -> Color.YELLOW;
-			case Artefact.QUILL -> Color.PINK;
-            default -> Color.WHITE;
-        };
+	public static Color getColor(Collectible c) {
+		return c.getColor();
 	}
 
 	public boolean isValidCorner(int corner);
