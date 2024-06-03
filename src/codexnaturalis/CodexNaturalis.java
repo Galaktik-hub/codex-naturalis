@@ -1,7 +1,6 @@
 package codexnaturalis;
 
 import java.awt.Color;
-
 import codexnaturalis.card.Card;
 import codexnaturalis.card.Coordinates;
 import codexnaturalis.card.Deck;
@@ -13,15 +12,12 @@ public class CodexNaturalis {
 	private static boolean firstCardPlaced = false;
 
 	public static void main(String[] args) {
-			Menu menu = new Menu();
-			menu.drawMenu();
-			
 	        Player p1 = new Player(1);
 	        Board board = new Board();
 	        Deck deck = new Deck();
 
 	        System.out.println(p1);
-	        System.out.println();
+	        System.out.println(deck);
 	        Application.run(Color.BLACK, context -> {
 	            // Boucle du jeu
 	            while (true) {
