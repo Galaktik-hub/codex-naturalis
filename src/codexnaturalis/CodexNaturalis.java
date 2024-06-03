@@ -10,6 +10,7 @@ import fr.umlv.zen5.Application;
 import fr.umlv.zen5.ScreenInfo;
 import fr.umlv.zen5.Event.Action;
 
+
 public class CodexNaturalis {
 
 	public static void main(String[] args) throws IOException {
