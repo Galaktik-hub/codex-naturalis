@@ -1,6 +1,8 @@
 package codexnaturalis;
 
 import java.awt.Color;
+import java.io.IOException;
+
 import codexnaturalis.card.Card;
 import codexnaturalis.card.Coordinates;
 import codexnaturalis.card.Deck;
@@ -11,13 +13,17 @@ import fr.umlv.zen5.Event.Action;
 public class CodexNaturalis {
 	private static boolean firstCardPlaced = false;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+			Menu menu = new Menu();
+			menu.drawMenu();
+			
 	        Player p1 = new Player(1);
 	        Board board = new Board();
-	        Deck deck = new Deck();
+	        Deck deck = DeckLoader.createDeck("deck.txt");
+	        System.out.print(deck);
 
 	        System.out.println(p1);
-	        System.out.println(deck);
+	        System.out.println();
 	        Application.run(Color.BLACK, context -> {
 	            // Boucle du jeu
 	            while (true) {
