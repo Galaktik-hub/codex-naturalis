@@ -1,4 +1,4 @@
-package codexnaturalis;
+package codexnaturalis.game;
 
 import java.awt.Color;
 import java.io.IOException;

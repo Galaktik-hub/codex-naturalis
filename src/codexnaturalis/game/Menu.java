@@ -1,4 +1,4 @@
-package codexnaturalis;
+package codexnaturalis.game;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -77,12 +77,12 @@ public class Menu {
                         }
 						
 						if (x >= hallOfFameButtonX && x <= hallOfFameButtonX + buttonWidth && y >= hallOfFameButtonY && y <= hallOfFameButtonY + buttonHeight) {
-                            context.exit(0); // On ferme la fenêtre
+							HallOfFame.drawHallOfFame(context);
+                            break;
 						}
 						
 						 if (x >= quitButtonX && x <= quitButtonX + buttonWidth && y >= quitButtonY && y <= quitButtonY + buttonHeight) {
-	                            HallOfFame.drawHallOfFame(context);
-	                            break;
+								context.exit(0); // On ferme la fenêtre
 						 }
 					}
 					continue;

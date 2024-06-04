@@ -1,4 +1,4 @@
-package codexnaturalis;
+package codexnaturalis.game;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

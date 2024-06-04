@@ -1,4 +1,4 @@
-package codexnaturalis;
+package codexnaturalis.game;
 
 import java.io.IOException;
 import java.nio.file.Files;
