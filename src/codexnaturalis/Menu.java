@@ -70,7 +70,7 @@ public class Menu {
 						
 						if (x >= newGameButtonX && x <= newGameButtonX + buttonWidth && y >= newGameButtonY && y <= newGameButtonY + buttonHeight) {
                             gameStarted = true;
-                            Menu.clearMenu(context);
+                            Menu.clearScreen(context);
                             break;
                         }
 						
@@ -83,7 +83,7 @@ public class Menu {
 		}
 	}
 	
-	public static void clearMenu(ApplicationContext context) {
+	public static void clearScreen(ApplicationContext context) {
 		Objects.requireNonNull(context);
 		ScreenInfo screenInfo = context.getScreenInfo();
 		float screenWidth = screenInfo.getWidth();
