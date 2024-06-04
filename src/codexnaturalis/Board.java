@@ -55,7 +55,7 @@ public class Board {
 		for (Coordinates cardCoordinates : newBoard.keySet()) {
 			board.put(cardCoordinates, newBoard.get(cardCoordinates));
 		}
-	}
+	} 
 	
 	@Override
 	public String toString() {

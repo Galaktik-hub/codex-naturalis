@@ -55,7 +55,7 @@ public class Menu {
                         graphics.setFont(new Font("Arial", Font.BOLD, 25));
                         graphics.drawString("Quitter", quitButtonX + 60, quitButtonY + 35);
                     });
-					
+					 
 					var event = context.pollOrWaitEvent(10);
 					if (event == null) {
 						continue;

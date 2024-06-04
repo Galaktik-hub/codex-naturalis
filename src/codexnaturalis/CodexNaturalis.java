@@ -36,7 +36,7 @@ public class CodexNaturalis {
                 System.out.println(board);
 	            // Boucle du jeu
 	            while (true) {
-	                var event = context.pollOrWaitEvent(10); // Récuperer un event
+	                var event = context.pollOrWaitEvent(10); // Récuperer un event 
 	                if (event == null) {
 	                    continue;
 	                }
