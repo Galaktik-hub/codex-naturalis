@@ -27,6 +27,7 @@ public class CodexNaturalis {
 	        	ScreenInfo screenInfo = context.getScreenInfo();
     			float screenWidth = screenInfo.getWidth();
     			float screenHeight = screenInfo.getHeight();
+    			board.drawBoard(p1, context);
     			Card firstCard = deck.drawCard();
     			Coordinates coordinatesFirstCard = new Coordinates((screenWidth/2) - firstCard.width()/2, (screenHeight/2) - firstCard.height()/2);
     			firstCard.draw(context, coordinatesFirstCard);
@@ -38,14 +39,12 @@ public class CodexNaturalis {
 	                if (event == null) {
 	                    continue;
 	                }
-	                board.drawHand(p1, context);
 	                var action = event.getAction();
 	                if (action == Action.POINTER_DOWN) { // Si clic de la souris
 	                    if (!(deck.isEmpty())) { // Tant que le deck n'est pas vide
 	                        Card randomCard = deck.drawCard();
 	                        Coordinates coordinates = new Coordinates(event.getLocation().x, event.getLocation().y);
 	                        randomCard.draw(context, coordinates);
-	                        
 	                    } else { // Sinon, on quitte le jeu
 	                        System.out.println("Deck épuisé");
 	                        context.exit(0); // On ferme la fenêtre

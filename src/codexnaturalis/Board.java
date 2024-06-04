@@ -31,7 +31,7 @@ public class Board {
 		return true;
 	}
 	
-	public void drawHand(Player p, ApplicationContext context) {
+	public void drawBoard(Player p, ApplicationContext context) {
 		Objects.requireNonNull(p);
 		Objects.requireNonNull(context);
 		p.drawHand(context);

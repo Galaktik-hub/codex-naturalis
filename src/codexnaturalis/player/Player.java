@@ -1,10 +1,10 @@
 package codexnaturalis.player;
 
+import java.awt.Color;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Objects;
-
 import codexnaturalis.card.Card;
-import codexnaturalis.card.Coordinates;
 import fr.umlv.zen5.ApplicationContext;
 
 public class Player {
@@ -49,7 +49,10 @@ public class Player {
 	
 	public void drawHand(ApplicationContext context) {
 		Objects.requireNonNull(context);
-		
+		context.renderFrame(graphics -> {
+			graphics.setColor(Color.GRAY);
+            graphics.fill(new Rectangle2D.Float(300, 1200, 1000, 300));
+		});
 	}
 	
 	@Override

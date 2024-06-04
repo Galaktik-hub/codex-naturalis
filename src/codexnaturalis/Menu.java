@@ -18,7 +18,7 @@ public class Menu {
 			float screenWidth = screenInfo.getWidth();
 			float screenHeight = screenInfo.getHeight();
 			
-			float buttonWidth = 200;
+			float buttonWidth = 250;
             float buttonHeight = 50;
             float newGameButtonX = screenWidth / 2 - buttonWidth / 2;
             float newGameButtonY = screenHeight / 2 - buttonHeight - 10;
