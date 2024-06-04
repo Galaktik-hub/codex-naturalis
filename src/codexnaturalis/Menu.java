@@ -57,7 +57,7 @@ public class Menu {
                         graphics.setFont(new Font("Arial", Font.BOLD, 25));
                         graphics.drawString("Quitter", quitButtonX + 60, quitButtonY + 35);
                     });
-					
+					 
 					var event = context.pollOrWaitEvent(10);
 					if (event == null) {
 						continue;
@@ -72,7 +72,7 @@ public class Menu {
 						
 						if (x >= newGameButtonX && x <= newGameButtonX + buttonWidth && y >= newGameButtonY && y <= newGameButtonY + buttonHeight) {
                             gameStarted = true;
-                            Menu.clearMenu(context);
+                            Menu.clearScreen(context);
                             break;
                         }
 						
@@ -90,7 +90,7 @@ public class Menu {
 		}
 	}
 	
-	public static void clearMenu(ApplicationContext context) {
+	public static void clearScreen(ApplicationContext context) {
 		Objects.requireNonNull(context);
 		ScreenInfo screenInfo = context.getScreenInfo();
 		float screenWidth = screenInfo.getWidth();

@@ -9,6 +9,7 @@ import codexnaturalis.player.Player;
 import fr.umlv.zen5.Application;
 import fr.umlv.zen5.ScreenInfo;
 import fr.umlv.zen5.Event.Action;
+import fr.umlv.zen5.KeyboardKey;
 
 
 public class CodexNaturalis {
@@ -39,20 +40,50 @@ public class CodexNaturalis {
                 System.out.println(board);
 	            // Boucle du jeu
 	            while (true) {
-	                var event = context.pollOrWaitEvent(10); // Récuperer un event
+	                var event = context.pollOrWaitEvent(10); // Récuperer un event 
 	                if (event == null) {
 	                    continue;
 	                }
 	                var action = event.getAction();
+	                var key = event.getKey();
 	                if (action == Action.POINTER_DOWN) { // Si clic de la souris
 	                    if (!(deck.isEmpty())) { // Tant que le deck n'est pas vide
 	                        Card randomCard = deck.drawCard();
 	                        Coordinates coordinates = new Coordinates(event.getLocation().x, event.getLocation().y);
+	                        board.add(coordinates, randomCard);
 	                        randomCard.draw(context, coordinates);
 	                    } else { // Sinon, on quitte le jeu
 	                        System.out.println("Deck épuisé");
 	                        context.exit(0); // On ferme la fenêtre
 	                        return;
+	                    }
+	                } else if (key == KeyboardKey.RIGHT) { // Tests pour savoir si l'on veut bouger le plateau
+	                    System.out.println(board.board());
+	                    board.move(new Coordinates(25, 0));
+	                    Menu.clearScreen(context);	// On efface tout
+	                    for (Coordinates coordinates : board.board().keySet()) {
+	                        board.board().get(coordinates).draw(context, coordinates); // Puis pour chaque carte on la redessine avec ses nouvelles coordonnées
+	                    }
+	                } else if (key == KeyboardKey.LEFT) {
+	                    System.out.println(board.board());
+	                    board.move(new Coordinates(-25, 0));
+	                    Menu.clearScreen(context);	// On efface tout
+	                    for (Coordinates coordinates : board.board().keySet()) {
+	                        board.board().get(coordinates).draw(context, coordinates); // Puis pour chaque carte on la redessine avec ses nouvelles coordonnées
+	                    }
+	                } else if (key == KeyboardKey.UP) {
+	                    System.out.println(board.board());
+	                    board.move(new Coordinates(0, -25));
+	                    Menu.clearScreen(context);	// On efface tout
+	                    for (Coordinates coordinates : board.board().keySet()) {
+	                        board.board().get(coordinates).draw(context, coordinates); // Puis pour chaque carte on la redessine avec ses nouvelles coordonnées
+	                    }
+	                } else if (key == KeyboardKey.DOWN) {
+	                    System.out.println(board.board());
+	                    board.move(new Coordinates(0, 25));
+	                    Menu.clearScreen(context);	// On efface tout
+	                    for (Coordinates coordinates : board.board().keySet()) {
+	                        board.board().get(coordinates).draw(context, coordinates); // Puis pour chaque carte on la redessine avec ses nouvelles coordonnées
 	                    }
 	                }
 	            }
