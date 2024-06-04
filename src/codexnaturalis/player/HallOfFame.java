@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import codexnaturalis.game.Menu;
 import fr.umlv.zen5.ApplicationContext;
 import fr.umlv.zen5.ScreenInfo;
 
@@ -58,6 +59,7 @@ public class HallOfFame {
     
     public static void drawHallOfFame(ApplicationContext context) throws IOException {
     	Objects.requireNonNull(context);
+    	Menu.clearScreen(context);
     	ScreenInfo screenInfo = context.getScreenInfo();
 		float screenWidth = screenInfo.getWidth();
 		float screenHeight = screenInfo.getHeight();

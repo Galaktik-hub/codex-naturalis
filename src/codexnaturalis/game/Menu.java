@@ -77,6 +77,7 @@ public class Menu {
                         }
 						
 						if (x >= hallOfFameButtonX && x <= hallOfFameButtonX + buttonWidth && y >= hallOfFameButtonY && y <= hallOfFameButtonY + buttonHeight) {
+							Menu.clearScreen(context);
 							HallOfFame.drawHallOfFame(context);
                             break;
 						}
