@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import codexnaturalis.game.Menu;
 import fr.umlv.zen5.ApplicationContext;
+import fr.umlv.zen5.Event.Action;
 import fr.umlv.zen5.ScreenInfo;
 
 public class HallOfFame {
@@ -58,16 +60,49 @@ public class HallOfFame {
     
     public static void drawHallOfFame(ApplicationContext context) throws IOException {
     	Objects.requireNonNull(context);
+    	Menu.clearScreen(context);
     	ScreenInfo screenInfo = context.getScreenInfo();
 		float screenWidth = screenInfo.getWidth();
 		float screenHeight = screenInfo.getHeight();
     	List<String> listHallOfFame = HallOfFame.getHallOfFame();
+    	System.out.println(listHallOfFame);
+    	int separator = 1;
+    	for (String fame : listHallOfFame) {
+    		final int separatorReal = separator;
+	    	context.renderFrame(graphics -> {
+	    			graphics.setColor(Color.WHITE);
+	                graphics.setFont(new Font("Arial", Font.BOLD, 25));
+	                graphics.drawString(String.valueOf(separatorReal) + ". " + fame, screenWidth / 2 - 200, (screenHeight / 2 - 200) + (35 * separatorReal));
+			});
+	    	separator++;
+	    }
+    	while (separator != 11) {
+    		final int separatorReal = separator;
+	    	context.renderFrame(graphics -> {
+	    			graphics.setColor(Color.WHITE);
+	                graphics.setFont(new Font("Arial", Font.BOLD, 25));
+	                graphics.drawString(String.valueOf(separatorReal) + ". Aucune données", screenWidth / 2 - 200, (screenHeight / 2 - 200) + (35 * separatorReal));
+			});
+	    	separator++;
+    	}
+    	final int separatorReal = separator + 1;
     	context.renderFrame(graphics -> {
-    		for (String fame : listHallOfFame) {
-    			graphics.setColor(Color.WHITE);
-                graphics.setFont(new Font("Arial", Font.BOLD, 60));
-                graphics.drawString(fame, screenWidth / 2 - 200, screenHeight / 2 - 200);
-			}
+			graphics.setColor(Color.WHITE);
+            graphics.setFont(new Font("Arial", Font.BOLD, 25));
+            graphics.drawString("Appuyez sur une touche pour revenir au menu", screenWidth / 2 - 200, (screenHeight / 2 - 200) + (35 * separatorReal));
     	});
+    	while (true) {
+    		var event = context.pollEvent();
+    		if (event == null || event.getAction() == Action.POINTER_MOVE || event.getAction() == Action.POINTER_UP) {
+    			continue;
+    		}
+            if (event != null) {
+            	Menu.clearScreen(context);
+            	System.out.print(event);
+            	Menu.drawMenu(context);
+                break;
+            }
+       }
+    	
     }
 }
