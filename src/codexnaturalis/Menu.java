@@ -3,15 +3,17 @@ package codexnaturalis;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.geom.Rectangle2D;
+import java.io.IOException;
 import java.util.Objects;
 
+import codexnaturalis.player.HallOfFame;
 import fr.umlv.zen5.ApplicationContext;
 import fr.umlv.zen5.ScreenInfo;
 import fr.umlv.zen5.Event.Action;
 
 public class Menu {
 	
-	public static void drawMenu(ApplicationContext context) {
+	public static void drawMenu(ApplicationContext context) throws IOException {
 			Objects.requireNonNull(context);
 			boolean gameStarted = false;
 			ScreenInfo screenInfo = context.getScreenInfo();
@@ -74,8 +76,13 @@ public class Menu {
                             break;
                         }
 						
+						if (x >= hallOfFameButtonX && x <= hallOfFameButtonX + buttonWidth && y >= hallOfFameButtonY && y <= hallOfFameButtonY + buttonHeight) {
+                            context.exit(0); // On ferme la fenêtre
+						}
+						
 						 if (x >= quitButtonX && x <= quitButtonX + buttonWidth && y >= quitButtonY && y <= quitButtonY + buttonHeight) {
-	                            context.exit(0); // On ferme la fenêtre
+	                            HallOfFame.drawHallOfFame(context);
+	                            break;
 						 }
 					}
 					continue;

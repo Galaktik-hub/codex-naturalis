@@ -17,13 +17,17 @@ public class CodexNaturalis {
 		
 	        Player p1 = new Player(1);
 	        Board board = new Board();
-	        Deck deck = DeckLoader.createDeck("deck.txt");
+	        Deck deck = DeckLoader.createDeck("src/codexnaturalis/game/deck.txt");
 	        System.out.print(deck);
 
 	        System.out.println(p1);
 	        System.out.println();
 	        Application.run(Color.BLACK, context -> {
-	        	Menu.drawMenu(context);
+	        	try {
+					Menu.drawMenu(context);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 	        	ScreenInfo screenInfo = context.getScreenInfo();
     			float screenWidth = screenInfo.getWidth();
     			float screenHeight = screenInfo.getHeight();

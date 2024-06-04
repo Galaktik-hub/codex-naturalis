@@ -1,15 +1,20 @@
 package codexnaturalis.player;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+
+import fr.umlv.zen5.ApplicationContext;
+import fr.umlv.zen5.ScreenInfo;
 
 public class HallOfFame {
 
     public static List<String> getHallOfFame() throws IOException {
         List<String> hallOfFame = new ArrayList<>();
-        String fileName = "halloffame.txt";
+        String fileName = "codexnaturalis/player/halloffame.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             int count = 0;
@@ -49,5 +54,20 @@ public class HallOfFame {
         } catch (IOException e) {
             throw new IOException();
         }
+    }
+    
+    public static void drawHallOfFame(ApplicationContext context) throws IOException {
+    	Objects.requireNonNull(context);
+    	ScreenInfo screenInfo = context.getScreenInfo();
+		float screenWidth = screenInfo.getWidth();
+		float screenHeight = screenInfo.getHeight();
+    	List<String> listHallOfFame = HallOfFame.getHallOfFame();
+    	context.renderFrame(graphics -> {
+    		for (String fame : listHallOfFame) {
+    			graphics.setColor(Color.WHITE);
+                graphics.setFont(new Font("Arial", Font.BOLD, 60));
+                graphics.drawString(fame, screenWidth / 2 - 200, screenHeight / 2 - 200);
+			}
+    	});
     }
 }
