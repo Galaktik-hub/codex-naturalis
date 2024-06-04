@@ -14,7 +14,7 @@ public class HallOfFame {
 
     public static List<String> getHallOfFame() throws IOException {
         List<String> hallOfFame = new ArrayList<>();
-        String fileName = "codexnaturalis/player/halloffame.txt";
+        String fileName = "src/codexnaturalis/game/halloffame.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             int count = 0;

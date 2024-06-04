@@ -1,9 +1,13 @@
 package codexnaturalis.game;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.io.IOException;
+import java.util.Random;
+
 import codexnaturalis.card.Card;
 import codexnaturalis.card.Coordinates;
+import codexnaturalis.card.CursorCard;
 import codexnaturalis.card.Deck;
 import codexnaturalis.player.Player;
 import fr.umlv.zen5.Application;
@@ -34,8 +38,10 @@ public class CodexNaturalis {
     			float screenHeight = screenInfo.getHeight();
     			board.drawBoard(p1, context);
     			Card firstCard = deck.drawCard();
+    			CursorCard cursorCard = new CursorCard();
     			Coordinates coordinatesFirstCard = new Coordinates((screenWidth/2) - firstCard.width()/2, (screenHeight/2) - firstCard.height()/2);
     			firstCard.draw(context, coordinatesFirstCard);
+    			cursorCard.draw(context, coordinatesFirstCard);
                 board.add(coordinatesFirstCard, firstCard);
                 System.out.println(board);
 	            // Boucle du jeu
@@ -85,6 +91,23 @@ public class CodexNaturalis {
 	                    for (Coordinates coordinates : board.board().keySet()) {
 	                        board.board().get(coordinates).draw(context, coordinates); // Puis pour chaque carte on la redessine avec ses nouvelles coordonnées
 	                    }
+	                } else if (key == KeyboardKey.A) {
+	                	Card randomCard = deck.drawCard();
+                        Coordinates coordinates = new Coordinates(event.getLocation().x, event.getLocation().y);
+                        board.add(coordinates, randomCard);
+                        randomCard.draw(context, coordinates);
+	                } else if (key == KeyboardKey.Z) {
+	                	Coordinates cursorCardCoordinates = cursorCard.move(coordinatesFirstCard, "Z");
+	                	cursorCard.draw(context, cursorCardCoordinates);
+	                } else if (key == KeyboardKey.Q) {
+	                	Coordinates cursorCardCoordinates = cursorCard.move(coordinatesFirstCard, "Q");
+	                	cursorCard.draw(context, cursorCardCoordinates);
+	                } else if (key == KeyboardKey.D) {
+	                	Coordinates cursorCardCoordinates = cursorCard.move(coordinatesFirstCard, "D");
+	                	cursorCard.draw(context, cursorCardCoordinates);
+	                } else if (key == KeyboardKey.S) {
+	                	Coordinates cursorCardCoordinates = cursorCard.move(coordinatesFirstCard, "S");
+	                	cursorCard.draw(context, cursorCardCoordinates);
 	                }
 	            }
 	        });
