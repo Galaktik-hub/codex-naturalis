@@ -22,8 +22,10 @@ public class Menu {
             float buttonHeight = 50;
             float newGameButtonX = screenWidth / 2 - buttonWidth / 2;
             float newGameButtonY = screenHeight / 2 - buttonHeight - 10;
+            float hallOfFameButtonX = screenWidth / 2 - buttonWidth / 2;
+            float hallOfFameButtonY = screenHeight / 2 - buttonHeight + 50;
             float quitButtonX = screenWidth / 2 - buttonWidth / 2;
-            float quitButtonY = screenHeight / 2 + 10;
+            float quitButtonY = screenHeight / 2 + 60;
 			
 			while (true) {
 				if (!gameStarted) {
@@ -41,17 +43,17 @@ public class Menu {
 
 						// Dessiner le bouton Hall Of Fame
 						graphics.setColor(Color.GRAY);
-						graphics.fill(new Rectangle2D.Float(newGameButtonX, newGameButtonY, buttonWidth, buttonHeight));
+						graphics.fill(new Rectangle2D.Float(hallOfFameButtonX, hallOfFameButtonY, buttonWidth, buttonHeight));
 						graphics.setColor(Color.WHITE);
 						graphics.setFont(new Font("Arial", Font.BOLD, 25));
-						graphics.drawString("Hall Of Fame", newGameButtonX + 60, newGameButtonY + 35);
+						graphics.drawString("Hall Of Fame", hallOfFameButtonX + 25, hallOfFameButtonY + 35);
                         
                         // Dessiner le bouton Quitter
                         graphics.setColor(Color.GRAY);
                         graphics.fill(new Rectangle2D.Float(quitButtonX, quitButtonY, buttonWidth, buttonHeight));
                         graphics.setColor(Color.WHITE);
                         graphics.setFont(new Font("Arial", Font.BOLD, 25));
-                        graphics.drawString("Quitter", quitButtonX + 110, quitButtonY + 35);
+                        graphics.drawString("Quitter", quitButtonX + 60, quitButtonY + 35);
                     });
 					
 					var event = context.pollOrWaitEvent(10);
