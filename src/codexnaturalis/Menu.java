@@ -38,13 +38,20 @@ public class Menu {
                         graphics.setColor(Color.WHITE);
                         graphics.setFont(new Font("Arial", Font.BOLD, 25));
                         graphics.drawString("Nouvelle Partie", newGameButtonX + 10, newGameButtonY + 35);
+
+						// Dessiner le bouton Hall Of Fame
+						graphics.setColor(Color.GRAY);
+						graphics.fill(new Rectangle2D.Float(newGameButtonX, newGameButtonY, buttonWidth, buttonHeight));
+						graphics.setColor(Color.WHITE);
+						graphics.setFont(new Font("Arial", Font.BOLD, 25));
+						graphics.drawString("Hall Of Fame", newGameButtonX + 60, newGameButtonY + 35);
                         
                         // Dessiner le bouton Quitter
                         graphics.setColor(Color.GRAY);
                         graphics.fill(new Rectangle2D.Float(quitButtonX, quitButtonY, buttonWidth, buttonHeight));
                         graphics.setColor(Color.WHITE);
                         graphics.setFont(new Font("Arial", Font.BOLD, 25));
-                        graphics.drawString("Quitter", quitButtonX + 60, quitButtonY + 35);
+                        graphics.drawString("Quitter", quitButtonX + 110, quitButtonY + 35);
                     });
 					
 					var event = context.pollOrWaitEvent(10);
